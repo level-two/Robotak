@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PromiseKit
 
 class GameplaySceneViewController: UIViewController {
     @IBOutlet var robot_left_big: UIImageView!
@@ -17,15 +18,22 @@ class GameplaySceneViewController: UIViewController {
     @IBOutlet var turnButton: UIButton!
 
     @IBAction func onTurnButton() {
-        shot(from: .robot_left_big, to: .robot_right_big)
-        shot(from: .robot_right_small, to: .robot_left_big)
-        shot(from: .robot_right_big, to: .robot_left_small)
-
-        movementAnimation(robotId: .robot_left_big)
-        movementAnimation(robotId: .robot_right_big)
+        firstly {
+            self.shot(from: .robot_left_big, to: .robot_right_big)
+        }.then {
+            self.movementAnimation(robotId: .robot_right_big)
+        }.then {
+            self.shot(from: .robot_right_small, to: .robot_left_big)
+        }.then {
+            self.movementAnimation(robotId: .robot_left_big)
+        }.then {
+            self.shot(from: .robot_right_big, to: .robot_left_small)
+        }.done {
+            self.movementAnimation(robotId: .robot_left_small)
+        }
     }
 
-    public func shot(from robot0: RobotId, to robot1: RobotId) {
+    public func shot(from robot0: RobotId, to robot1: RobotId) -> Promise<Void> {
         let robot0Center = robotView(for: robot0).frame.center
         let robot1Center = robotView(for: robot1).frame.center
 
@@ -35,29 +43,33 @@ class GameplaySceneViewController: UIViewController {
         shot.backgroundColor = .green
 
         self.view.addSubview(shot)
-        UIView.animate(withDuration: 2, animations: {
-            UIView.setAnimationCurve(.linear)
-            shot.frame = .init(center: robot1Center, size: shot.frame.size)
-        }, completion: { isDone in
-            shot.removeFromSuperview()
-            // fulfill promise
-        })
+
+        return .init() { seal in
+            UIView.animate(withDuration: 2, animations: {
+                UIView.setAnimationCurve(.linear)
+                shot.frame = .init(center: robot1Center, size: shot.frame.size)
+            }, completion: { isDone in
+                shot.removeFromSuperview()
+                seal.fulfill(())
+            })
+        }
     }
 
-    public func movementAnimation(robotId: RobotId) {
+    public func movementAnimation(robotId: RobotId) -> Promise<Void> {
         let robot = robotView(for: robotId)
         let origTransform = robot.transform
 
-        UIView.animate(withDuration: 0.5, animations: {
-            //robot.scaleY = 0.9
-            robot.transform = origTransform.scaledBy(x: 1.0, y: 0.9)
-        }, completion: { _ in
+        return .init() { seal in
             UIView.animate(withDuration: 0.5, animations: {
-                robot.transform = origTransform
+                robot.transform = origTransform.scaledBy(x: 1.0, y: 0.9)
             }, completion: { _ in
-                // fulfill promise
+                UIView.animate(withDuration: 0.5, animations: {
+                    robot.transform = origTransform
+                }, completion: { _ in
+                    seal.fulfill(())
+                })
             })
-        })
+        }
     }
 }
 

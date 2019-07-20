@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GameplayPlayground.playground">
+   </FileRef>
+   <FileRef
       location = "group:Robotak.xcodeproj">
    </FileRef>
    <FileRef

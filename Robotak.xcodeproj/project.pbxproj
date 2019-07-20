@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		9E255FDC22E330560064042D /* GameplaySceneTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E255FDB22E330560064042D /* GameplaySceneTypes.swift */; };
 		9E255FDD22E39C950064042D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E255FB622E307B40064042D /* Assets.xcassets */; };
 		9E25600D22E39F380064042D /* GameplayScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E25600C22E39F380064042D /* GameplayScene.storyboard */; };
+		9EFEA81722E3B4F3000D788C /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEA81622E3B4F3000D788C /* StateMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9E255FD722E30F0F0064042D /* RobotSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSprite.swift; sourceTree = "<group>"; };
 		9E255FDB22E330560064042D /* GameplaySceneTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplaySceneTypes.swift; sourceTree = "<group>"; };
 		9E25600C22E39F380064042D /* GameplayScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameplayScene.storyboard; sourceTree = "<group>"; };
+		9EFEA81622E3B4F3000D788C /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		BA23CDD72125CCB32860967B /* Pods-Robotak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robotak.debug.xcconfig"; path = "Target Support Files/Pods-Robotak/Pods-Robotak.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				9E255FB322E307B30064042D /* Main.storyboard */,
 				9E255FB822E307B40064042D /* LaunchScreen.storyboard */,
 				9E255FD622E30EAD0064042D /* GameplayScene */,
+				9EFEA81822E3B500000D788C /* Common */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -151,6 +154,14 @@
 			path = GameplayScene;
 			sourceTree = "<group>";
 		};
+		9EFEA81822E3B500000D788C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9EFEA81622E3B4F3000D788C /* StateMachine.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		F399176556899338AFBAB6E5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +170,6 @@
 				25129EF02CB7163B5296B63F /* Pods-RobotakTests.debug.xcconfig */,
 				9D5A5D654CCF5A90830A8CCE /* Pods-RobotakTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -335,6 +345,7 @@
 				9E255FB222E307B30064042D /* ViewController.swift in Sources */,
 				9E255FD822E30F0F0064042D /* RobotSprite.swift in Sources */,
 				9E255FDC22E330560064042D /* GameplaySceneTypes.swift in Sources */,
+				9EFEA81722E3B4F3000D788C /* StateMachine.swift in Sources */,
 				9E255FD122E30C3C0064042D /* GameplaySceneViewController.swift in Sources */,
 				9E255FD522E30C6E0064042D /* GameplaySceneInteractions.swift in Sources */,
 				9E255FB022E307B30064042D /* AppDelegate.swift in Sources */,
@@ -501,7 +512,6 @@
 			baseConfigurationReference = BA23CDD72125CCB32860967B /* Pods-Robotak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H488UP8W94;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
@@ -521,7 +531,6 @@
 			baseConfigurationReference = 4417C26ED324A09FE4375580 /* Pods-Robotak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H488UP8W94;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
