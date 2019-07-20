@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WaG-t6-Cdw">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gameplay Scene View Controller-->
+        <scene sceneID="gGg-WQ-MJh">
+            <objects>
+                <viewController id="WaG-t6-Cdw" customClass="GameplaySceneViewController" customModule="Robotak" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qCf-rE-Que">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9C2-ha-epJ">
+                                <rect key="frame" x="0.0" y="-146" width="667" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9C2-ha-epJ" secondAttribute="height" multiplier="1:1" id="LUL-Ee-TNR"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-QJ-YKF" userLabel="GameArea">
+                                <rect key="frame" x="0.0" y="62.5" width="667" height="312.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot1" translatesAutoresizingMaskIntoConstraints="NO" id="hDd-28-XAU" userLabel="robot_left_big">
+                                        <rect key="frame" x="0.0" y="0.0" width="156.5" height="312.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hDd-28-XAU" secondAttribute="height" multiplier="1:2" id="CLk-US-5FD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot0" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-Ah-nMq" userLabel="robot_left_small">
+                                        <rect key="frame" x="156.5" y="156.5" width="109" height="156"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BIH-Ah-nMq" secondAttribute="height" multiplier="0.7" id="C9q-F8-Buu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot3" translatesAutoresizingMaskIntoConstraints="NO" id="XrM-EK-xUE" userLabel="robot_right_small">
+                                        <rect key="frame" x="401.5" y="156.5" width="109.5" height="156"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XrM-EK-xUE" secondAttribute="height" multiplier="0.7" id="LhG-ch-nnh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot2" translatesAutoresizingMaskIntoConstraints="NO" id="erx-Xg-K3J" userLabel="robot_right_big">
+                                        <rect key="frame" x="511" y="0.0" width="156" height="312.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="erx-Xg-K3J" secondAttribute="height" multiplier="1:2" id="VnX-98-ivo"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94811556990000001" green="1" blue="0.0" alpha="0.23151408449999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="XrM-EK-xUE" firstAttribute="height" secondItem="BB9-QJ-YKF" secondAttribute="height" multiplier="1/2" id="5KM-sE-xSH"/>
+                                    <constraint firstItem="hDd-28-XAU" firstAttribute="leading" secondItem="BB9-QJ-YKF" secondAttribute="leading" id="7UQ-BM-spk"/>
+                                    <constraint firstAttribute="bottom" secondItem="XrM-EK-xUE" secondAttribute="bottom" id="9b0-yu-mJU"/>
+                                    <constraint firstAttribute="trailing" secondItem="erx-Xg-K3J" secondAttribute="trailing" id="ICl-hY-BGx"/>
+                                    <constraint firstItem="BIH-Ah-nMq" firstAttribute="height" secondItem="BB9-QJ-YKF" secondAttribute="height" multiplier="1/2" id="QJo-1m-Hsz"/>
+                                    <constraint firstAttribute="bottom" secondItem="BIH-Ah-nMq" secondAttribute="bottom" id="RjX-Y3-0YJ"/>
+                                    <constraint firstItem="erx-Xg-K3J" firstAttribute="height" secondItem="BB9-QJ-YKF" secondAttribute="height" id="V00-RZ-hVx"/>
+                                    <constraint firstItem="erx-Xg-K3J" firstAttribute="centerY" secondItem="BB9-QJ-YKF" secondAttribute="centerY" id="X3S-BB-U3p"/>
+                                    <constraint firstItem="hDd-28-XAU" firstAttribute="height" secondItem="BB9-QJ-YKF" secondAttribute="height" id="YyJ-dM-rQs"/>
+                                    <constraint firstItem="erx-Xg-K3J" firstAttribute="leading" secondItem="XrM-EK-xUE" secondAttribute="trailing" id="jXt-vj-N3j"/>
+                                    <constraint firstItem="hDd-28-XAU" firstAttribute="centerY" secondItem="BB9-QJ-YKF" secondAttribute="centerY" id="kHE-e9-pGZ"/>
+                                    <constraint firstItem="BIH-Ah-nMq" firstAttribute="leading" secondItem="hDd-28-XAU" secondAttribute="trailing" id="og5-gR-fhf"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLm-fn-ssy" userLabel="GambleArea">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="62.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92Y-n5-MeF">
+                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="62.5"/>
+                                        <color key="backgroundColor" name="alternatingContentBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="92Y-n5-MeF" secondAttribute="height" multiplier="1:1" id="yQy-T2-bLb"/>
+                                        </constraints>
+                                        <state key="normal" title="Turn"/>
+                                        <connections>
+                                            <action selector="onTurnButton" destination="WaG-t6-Cdw" eventType="touchUpInside" id="Uhh-hZ-oqJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.41285156470000001" blue="0.36913688950000001" alpha="0.21745708629999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="92Y-n5-MeF" firstAttribute="leading" secondItem="wLm-fn-ssy" secondAttribute="leading" id="0QR-mt-CoV"/>
+                                    <constraint firstItem="92Y-n5-MeF" firstAttribute="height" secondItem="wLm-fn-ssy" secondAttribute="height" id="2Gs-po-un8"/>
+                                    <constraint firstItem="92Y-n5-MeF" firstAttribute="centerY" secondItem="wLm-fn-ssy" secondAttribute="centerY" id="A7q-ti-2kp"/>
+                                    <constraint firstItem="92Y-n5-MeF" firstAttribute="top" secondItem="wLm-fn-ssy" secondAttribute="top" id="TrI-J0-UpY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="k8j-gq-asH" firstAttribute="top" secondItem="wLm-fn-ssy" secondAttribute="top" id="2GB-D3-exB"/>
+                            <constraint firstItem="wLm-fn-ssy" firstAttribute="height" secondItem="qCf-rE-Que" secondAttribute="height" multiplier="1/6" id="6Xl-5P-xkW"/>
+                            <constraint firstItem="BB9-QJ-YKF" firstAttribute="top" secondItem="wLm-fn-ssy" secondAttribute="bottom" id="6hB-Of-ZXB"/>
+                            <constraint firstItem="9C2-ha-epJ" firstAttribute="centerY" secondItem="k8j-gq-asH" secondAttribute="centerY" id="7FS-3O-BmS"/>
+                            <constraint firstItem="9C2-ha-epJ" firstAttribute="centerX" secondItem="k8j-gq-asH" secondAttribute="centerX" id="90p-rj-H6A"/>
+                            <constraint firstItem="wLm-fn-ssy" firstAttribute="leading" secondItem="k8j-gq-asH" secondAttribute="leading" id="FL7-x7-nZQ"/>
+                            <constraint firstItem="BB9-QJ-YKF" firstAttribute="bottom" secondItem="k8j-gq-asH" secondAttribute="bottom" id="HHy-AH-bWn"/>
+                            <constraint firstItem="9C2-ha-epJ" firstAttribute="width" secondItem="qCf-rE-Que" secondAttribute="width" id="ZSF-9g-lO0"/>
+                            <constraint firstItem="BB9-QJ-YKF" firstAttribute="leading" secondItem="k8j-gq-asH" secondAttribute="leading" id="aA2-cJ-rbp"/>
+                            <constraint firstItem="BB9-QJ-YKF" firstAttribute="trailing" secondItem="k8j-gq-asH" secondAttribute="trailing" id="cVR-4R-85r"/>
+                            <constraint firstItem="k8j-gq-asH" firstAttribute="trailing" secondItem="wLm-fn-ssy" secondAttribute="trailing" id="gFQ-Bf-QK1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k8j-gq-asH"/>
+                    </view>
+                    <connections>
+                        <outlet property="robot_left_big" destination="hDd-28-XAU" id="M8i-DF-fgY"/>
+                        <outlet property="robot_left_small" destination="BIH-Ah-nMq" id="DsH-dC-bNO"/>
+                        <outlet property="robot_right_big" destination="erx-Xg-K3J" id="8zR-oL-LZ3"/>
+                        <outlet property="robot_right_small" destination="XrM-EK-xUE" id="x0d-Pc-eav"/>
+                        <outlet property="turnButton" destination="92Y-n5-MeF" id="idG-eE-f2m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3e-Sn-KMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-170" y="47"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="460.79998779296875" height="307.44000244140625"/>
+        <image name="robot0" width="577" height="640"/>
+        <image name="robot1" width="507" height="640"/>
+        <image name="robot2" width="387" height="640"/>
+        <image name="robot3" width="543" height="640"/>
+    </resources>
+</document>
