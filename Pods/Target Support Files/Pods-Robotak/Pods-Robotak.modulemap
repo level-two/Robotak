@@ -1,0 +1,6 @@
+framework module Pods_Robotak {
+  umbrella header "Pods-Robotak-umbrella.h"
+
+  export *
+  module * { export * }
+}

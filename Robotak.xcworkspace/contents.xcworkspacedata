@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Robotak/Robotak.xcodeproj">
+      location = "group:Robotak.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:GameplayPlayground.playground">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
