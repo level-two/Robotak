@@ -15,11 +15,11 @@ class StateMachine<State, Event> where State: Hashable, Event: Hashable {
         currentState = nil
     }
 
-    public func setTransition(from: State, to : State, on event: Event) {
+    public func setTransition(from: State, to toState: State, on event: Event) {
         if transitions.index(forKey: from) == nil {
-            transitions[from] = [event:to]
+            transitions[from] = [event: toState]
         } else {
-            transitions[from]![event] = to
+            transitions[from]![event] = toState
         }
     }
 
@@ -36,7 +36,7 @@ class StateMachine<State, Event> where State: Hashable, Event: Hashable {
     }
 
     public func fire(_ event: Event) {
-        guard let state = currentState else  {
+        guard let state = currentState else {
             fatalError("State Machine is not started!")
         }
 
@@ -52,6 +52,6 @@ class StateMachine<State, Event> where State: Hashable, Event: Hashable {
     }
 
     private var currentState: State?
-    private var handlers: [State : ()->Void]
+    private var handlers: [State : () -> Void]
     private var transitions: [State: [Event: State]]
 }

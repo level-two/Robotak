@@ -181,6 +181,7 @@
 			buildConfigurationList = 9E255FC922E307B40064042D /* Build configuration list for PBXNativeTarget "Robotak" */;
 			buildPhases = (
 				D74A23090CC4F5288B1AF0CE /* [CP] Check Pods Manifest.lock */,
+				9EFEA81922E4CF65000D788C /* SwiftLint */,
 				9E255FA822E307B30064042D /* Sources */,
 				9E255FA922E307B30064042D /* Frameworks */,
 				9E255FAA22E307B30064042D /* Resources */,
@@ -312,6 +313,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Robotak/Pods-Robotak-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9EFEA81922E4CF65000D788C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		D74A23090CC4F5288B1AF0CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
