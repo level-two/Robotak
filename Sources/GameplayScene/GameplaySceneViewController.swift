@@ -15,12 +15,6 @@ import RxCocoa
 class GameplaySceneViewController: UIViewController {
     public let onTurnButton = PublishSubject<Void>()
 
-    @IBOutlet var robotLeftBig: UIImageView!
-    @IBOutlet var robotLeftSmall: UIImageView!
-    @IBOutlet var robotRightBig: UIImageView!
-    @IBOutlet var robotRightSmall: UIImageView!
-    @IBOutlet var turnButton: UIButton!
-
     public func setupDependencies() {
         self.presenter = GameplayScenePresenter(self)
         self.interactions = GameplaySceneInteractions(presenter)
@@ -28,6 +22,23 @@ class GameplaySceneViewController: UIViewController {
 
     override func viewDidLoad() {
         turnButton.rx.tap.bind(to: onTurnButton).disposed(by: disposeBag)
+        setupDependencies() // FIXME: Should be called by the fabric
+    }
+
+    public func enableBonusSwitchButtons() {
+
+    }
+
+    public func disableBonusSwitchButtons() {
+
+    }
+
+    public func enableTurnButton() {
+        turnButton.isEnabled = true
+    }
+
+    public func disableTurnButton() {
+        turnButton.isEnabled = false
     }
 
     public func shot(from robot0: RobotId, to robot1: RobotId) -> Promise<Void> {
@@ -68,6 +79,12 @@ class GameplaySceneViewController: UIViewController {
             })
         }
     }
+
+    @IBOutlet var robotLeftBig: UIImageView!
+    @IBOutlet var robotLeftSmall: UIImageView!
+    @IBOutlet var robotRightBig: UIImageView!
+    @IBOutlet var robotRightSmall: UIImageView!
+    @IBOutlet var turnButton: UIButton!
 
     private var presenter: GameplayScenePresenter!
     private var interactions: GameplaySceneInteractions!

@@ -10,6 +10,7 @@ target 'Robotak' do
   pod 'PromiseKit', '~> 6.8'
   pod 'RxSwift', '~> 4'
   pod 'RxCocoa', '~> 4'
+  pod 'RxViewController'
   pod 'SwiftLint'
   
   target 'RobotakTests' do
