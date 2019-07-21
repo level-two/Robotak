@@ -78,9 +78,6 @@
                                             <constraint firstAttribute="width" secondItem="92Y-n5-MeF" secondAttribute="height" multiplier="1:1" id="yQy-T2-bLb"/>
                                         </constraints>
                                         <state key="normal" title="Turn"/>
-                                        <connections>
-                                            <action selector="onTurnButton" destination="WaG-t6-Cdw" eventType="touchUpInside" id="Uhh-hZ-oqJ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.41285156470000001" blue="0.36913688950000001" alpha="0.21745708629999999" colorSpace="custom" customColorSpace="displayP3"/>
@@ -109,10 +106,10 @@
                         <viewLayoutGuide key="safeArea" id="k8j-gq-asH"/>
                     </view>
                     <connections>
-                        <outlet property="robot_left_big" destination="hDd-28-XAU" id="M8i-DF-fgY"/>
-                        <outlet property="robot_left_small" destination="BIH-Ah-nMq" id="DsH-dC-bNO"/>
-                        <outlet property="robot_right_big" destination="erx-Xg-K3J" id="8zR-oL-LZ3"/>
-                        <outlet property="robot_right_small" destination="XrM-EK-xUE" id="x0d-Pc-eav"/>
+                        <outlet property="robotLeftBig" destination="hDd-28-XAU" id="evn-8s-a0d"/>
+                        <outlet property="robotLeftSmall" destination="BIH-Ah-nMq" id="22g-zi-jo3"/>
+                        <outlet property="robotRightBig" destination="erx-Xg-K3J" id="Sed-Vm-gyN"/>
+                        <outlet property="robotRightSmall" destination="XrM-EK-xUE" id="0Hg-O1-bwJ"/>
                         <outlet property="turnButton" destination="92Y-n5-MeF" id="idG-eE-f2m"/>
                     </connections>
                 </viewController>

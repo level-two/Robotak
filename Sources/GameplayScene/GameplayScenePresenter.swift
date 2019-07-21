@@ -9,5 +9,10 @@
 import Foundation
 
 class GameplayScenePresenter {
-    
+
+    init(_ viewController: GameplaySceneViewController) {
+        self.viewController = viewController
+    }
+
+    private weak var viewController: GameplaySceneViewController!
 }

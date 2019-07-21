@@ -9,28 +9,25 @@
 import Foundation
 import UIKit
 import PromiseKit
+import RxSwift
+import RxCocoa
 
 class GameplaySceneViewController: UIViewController {
-    @IBOutlet var robot_left_big: UIImageView!
-    @IBOutlet var robot_left_small: UIImageView!
-    @IBOutlet var robot_right_big: UIImageView!
-    @IBOutlet var robot_right_small: UIImageView!
+    public let onTurnButton = PublishSubject<Void>()
+
+    @IBOutlet var robotLeftBig: UIImageView!
+    @IBOutlet var robotLeftSmall: UIImageView!
+    @IBOutlet var robotRightBig: UIImageView!
+    @IBOutlet var robotRightSmall: UIImageView!
     @IBOutlet var turnButton: UIButton!
 
-    @IBAction func onTurnButton() {
-        firstly {
-            self.shot(from: .robot_left_big, to: .robot_right_big)
-        }.then {
-            self.movementAnimation(robotId: .robot_right_big)
-        }.then {
-            self.shot(from: .robot_right_small, to: .robot_left_big)
-        }.then {
-            self.movementAnimation(robotId: .robot_left_big)
-        }.then {
-            self.shot(from: .robot_right_big, to: .robot_left_small)
-        }.done {
-            self.movementAnimation(robotId: .robot_left_small)
-        }
+    public func setupDependencies() {
+        self.presenter = GameplayScenePresenter(self)
+        self.interactions = GameplaySceneInteractions(presenter)
+    }
+
+    override func viewDidLoad() {
+        turnButton.rx.tap.bind(to: onTurnButton).disposed(by: disposeBag)
     }
 
     public func shot(from robot0: RobotId, to robot1: RobotId) -> Promise<Void> {
@@ -48,7 +45,7 @@ class GameplaySceneViewController: UIViewController {
             UIView.animate(withDuration: 2, animations: {
                 UIView.setAnimationCurve(.linear)
                 shot.frame = .init(center: robot1Center, size: shot.frame.size)
-            }, completion: { isDone in
+            }, completion: { _ in
                 shot.removeFromSuperview()
                 seal.fulfill(())
             })
@@ -71,19 +68,23 @@ class GameplaySceneViewController: UIViewController {
             })
         }
     }
+
+    private var presenter: GameplayScenePresenter!
+    private var interactions: GameplaySceneInteractions!
+    private let disposeBag = DisposeBag()
 }
 
 extension GameplaySceneViewController {
     func robotView(for id: RobotId) -> UIView {
-        switch(id) {
-        case .robot_left_big:
-            return robot_left_big
-        case .robot_left_small:
-            return robot_left_small
-        case .robot_right_big:
-            return robot_right_big
-        case .robot_right_small:
-            return robot_right_small
+        switch id {
+        case .robotLeftBig:
+            return robotLeftBig
+        case .robotLeftSmall:
+            return robotLeftSmall
+        case .robotRightBig:
+            return robotRightBig
+        case .robotRightSmall:
+            return robotRightSmall
         }
     }
 }

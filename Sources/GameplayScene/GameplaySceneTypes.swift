@@ -9,8 +9,8 @@
 import Foundation
 
 enum RobotId {
-    case robot_left_big
-    case robot_left_small
-    case robot_right_big
-    case robot_right_small
+    case robotLeftBig
+    case robotLeftSmall
+    case robotRightBig
+    case robotRightSmall
 }
